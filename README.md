@@ -104,7 +104,7 @@ The simulation verifies that the time resets correctly from 23:59:59 → 00:00:0
 # Output Synthesis
 **RTL Schematic:**
 
-Displays the elaborated design showing registers, multiplexers, and adders used in the RTC logic.
+
 <img width="1893" height="1182" alt="Screenshot 2025-10-22 190508" src="https://github.com/user-attachments/assets/c9436932-76c2-4be7-ac6d-43c49a24c7b1" />
 
 
@@ -112,7 +112,7 @@ Displays the elaborated design showing registers, multiplexers, and adders used 
 
 **Simulation Waveform:**
 
-Shows proper incrementation of hours, minutes, and seconds over time.
+
 <img width="1897" height="1212" alt="Screenshot 2025-10-22 190626" src="https://github.com/user-attachments/assets/16dffc86-978f-41b6-8d6d-e34a02b1ab38" />
 
 
@@ -120,7 +120,7 @@ Shows proper incrementation of hours, minutes, and seconds over time.
 
 **Tcl Console Output:**
 
-Displays real-time transitions of time and seven-segment encoded outputs.
+
 <img width="1806" height="887" alt="Screenshot 2025-10-22 190748" src="https://github.com/user-attachments/assets/26169a73-fd1b-42c3-9ef5-39ad4fda4a75" />
 
 
