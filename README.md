@@ -31,28 +31,29 @@ The Real Time Clock consists of the following modules:
 
 **Inputs**:
 
-**clk**: Clock input (used for counting seconds)
+- **clk**: Clock input (used for counting seconds)
 
-**reset**: Asynchronous reset to initialize the clock to 00:00:00
+- **reset**: Asynchronous reset to initialize the clock to 00:00:00
 
 **Outputs**:
 
-- hr_m, hr_l: Hour tens and ones digits
+- **hr_m, hr_l**: Hour tens and ones digits
 
-- min_m, min_l: Minute tens and ones digits
+- **min_m, min_l**: Minute tens and ones digits
 
-- sec_m, sec_l: Second tens and ones digits
+- **sec_m, sec_l**: Second tens and ones digits
 
-- seg_hr_m, seg_hr_l, seg_min_m, seg_min_l, seg_sec_m, seg_sec_l: Seven-segment display encoded outputs
+- **seg_hr_m, seg_hr_l, seg_min_m, seg_min_l, seg_sec_m, seg_sec_l**: Seven-segment display encoded outputs
 
 # Significance of the Specifications
 **Signal	Description**
-clk	Clock input for incrementing time
-reset	Resets all values to zero
-hr_m/hr_l	Represent hours (00–23)
-min_m/min_l	Represent minutes (00–59)
-sec_m/sec_l	Represent seconds (00–59)
-seg_xx_x	Output to seven-segment display
+
+- **clk**	Clock input for incrementing time
+- **reset**	Resets all values to zero
+- **hr_m/hr_l**	Represent hours (00–23)
+- **min_m/min_l**	Represent minutes (00–59)
+- **sec_m/sec_l**	Represent seconds (00–59)
+- **seg_xx_x**	Output to seven-segment display
 
 # Modules
 **module RealTimeClock(clk, reset, ...)**
@@ -70,17 +71,17 @@ This is the testbench used to verify the functionality of the RTC module. It sim
 
 # Working
 
-The clock signal (clk) provides pulses that simulate one-second intervals.
+1) The clock signal (clk) provides pulses that simulate one-second intervals.
 
-Each positive clock edge increments the seconds counter (sec_l, sec_m).
+2) Each positive clock edge increments the seconds counter (sec_l, sec_m).
 
-When seconds reach 59, the minutes counter increments by one and seconds reset to 00.
+3) When seconds reach 59, the minutes counter increments by one and seconds reset to 00.
 
-Similarly, when minutes reach 59, the hours counter increments by one and minutes reset to 00.
+4) Similarly, when minutes reach 59, the hours counter increments by one and minutes reset to 00.
 
-After 23:59:59, the system resets to 00:00:00, completing a 24-hour cycle.
+5) After 23:59:59, the system resets to 00:00:00, completing a 24-hour cycle.
 
-All outputs are simultaneously decoded into seven-segment display signals.
+6) All outputs are simultaneously decoded into seven-segment display signals.
 
 # Example Output
 
@@ -103,6 +104,7 @@ Displays the elaborated design showing registers, multiplexers, and adders used 
 
 
 **Simulation Waveform:**
+
 Shows proper incrementation of hours, minutes, and seconds over time.
 <img width="1897" height="1212" alt="Screenshot 2025-10-22 190626" src="https://github.com/user-attachments/assets/16dffc86-978f-41b6-8d6d-e34a02b1ab38" />
 
