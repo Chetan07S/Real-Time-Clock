@@ -5,7 +5,7 @@ The main goal of this project was to create a simple yet functional digital cloc
 
 The design was verified using Xilinx Vivado, where the simulation and elaboration confirmed the correct time incrementation behavior, rollover logic, and proper seven-segment display outputs.
 
-Design Overview
+# Design Overview
 
 The Real Time Clock consists of the following modules:
 
