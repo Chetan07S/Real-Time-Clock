@@ -11,9 +11,9 @@ The Real Time Clock consists of the following modules:
 
 **Main RTC Counter Module**
 
--Handles the incrementation of seconds, minutes, and hours.
+- Handles the incrementation of seconds, minutes, and hours.
 
--Resets correctly after reaching 23:59:59 and starts again from 00:00:00.
+- Resets correctly after reaching 23:59:59 and starts again from 00:00:00.
 
 **Seven-Segment Display Decoder**
 
