@@ -17,15 +17,15 @@ The Real Time Clock consists of the following modules:
 
 **Seven-Segment Display Decoder**
 
-Converts each 4-bit binary digit (0–9) into a 7-bit segment pattern.
+- each 4-bit binary digit (0–9) into a 7-bit segment pattern.
 
-Outputs signals suitable for display on standard seven-segment displays.
+- Outputs signals suitable for display on standard seven-segment displays.
 
 **Testbench Module**
 
-Simulates the clock signal, reset signal, and observes time transitions.
+- Simulates the clock signal, reset signal, and observes time transitions.
 
-Uses $monitor to display the time values at each simulation step.
+- Uses $monitor to display the time values at each simulation step.
 
 # Specifications
 
@@ -37,13 +37,13 @@ Uses $monitor to display the time values at each simulation step.
 
 **Outputs**:
 
-hr_m, hr_l: Hour tens and ones digits
+- hr_m, hr_l: Hour tens and ones digits
 
-min_m, min_l: Minute tens and ones digits
+- min_m, min_l: Minute tens and ones digits
 
-sec_m, sec_l: Second tens and ones digits
+- sec_m, sec_l: Second tens and ones digits
 
-seg_hr_m, seg_hr_l, seg_min_m, seg_min_l, seg_sec_m, seg_sec_l: Seven-segment display encoded outputs
+- seg_hr_m, seg_hr_l, seg_min_m, seg_min_l, seg_sec_m, seg_sec_l: Seven-segment display encoded outputs
 
 # Significance of the Specifications
 **Signal	Description**
@@ -55,16 +55,16 @@ sec_m/sec_l	Represent seconds (00–59)
 seg_xx_x	Output to seven-segment display
 
 # Modules
-module RealTimeClock(clk, reset, ...)
+**module RealTimeClock(clk, reset, ...)**
 
 This is the main clock module that handles the incrementation of seconds, minutes, and hours with proper rollover conditions.
 It also integrates a seven-segment decoder to produce outputs for display.
 
-function seven_seg_decode(input [3:0] digit)
+**function seven_seg_decode(input [3:0] digit)**
 
 This function converts a 4-bit binary value into its equivalent 7-segment display pattern.
 
-module RTC_tb
+**module RTC_tb**
 
 This is the testbench used to verify the functionality of the RTC module. It simulates the clock signal, applies reset, and monitors outputs during simulation.
 
@@ -94,30 +94,35 @@ Time=864025000 | 00:00:02
 The simulation verifies that the time resets correctly from 23:59:59 → 00:00:00 and continues normally.
 
 # Output Synthesis
-RTL Schematic:
-<img width="1893" height="1182" alt="Screenshot 2025-10-22 190508" src="https://github.com/user-attachments/assets/c9436932-76c2-4be7-ac6d-43c49a24c7b1" />
+**RTL Schematic:**
 
 Displays the elaborated design showing registers, multiplexers, and adders used in the RTC logic.
+<img width="1893" height="1182" alt="Screenshot 2025-10-22 190508" src="https://github.com/user-attachments/assets/c9436932-76c2-4be7-ac6d-43c49a24c7b1" />
 
 
-Simulation Waveform:
+
+
+**Simulation Waveform:**
+Shows proper incrementation of hours, minutes, and seconds over time.
 <img width="1897" height="1212" alt="Screenshot 2025-10-22 190626" src="https://github.com/user-attachments/assets/16dffc86-978f-41b6-8d6d-e34a02b1ab38" />
 
-Shows proper incrementation of hours, minutes, and seconds over time.
 
 
-Tcl Console Output:
-<img width="1806" height="887" alt="Screenshot 2025-10-22 190748" src="https://github.com/user-attachments/assets/26169a73-fd1b-42c3-9ef5-39ad4fda4a75" />
+
+**Tcl Console Output:**
 
 Displays real-time transitions of time and seven-segment encoded outputs.
+<img width="1806" height="887" alt="Screenshot 2025-10-22 190748" src="https://github.com/user-attachments/assets/26169a73-fd1b-42c3-9ef5-39ad4fda4a75" />
+
+
 
 # Future Enhancements
 
-Add alarm functionality
+1) Add alarm functionality
 
-Include real-time synchronization using external RTC modules (like DS3231)
+2) Include real-time synchronization using external RTC modules (like DS3231)
 
-Display time on physical FPGA 7-segment displays
+3) Display time on physical FPGA 7-segment displays
 
 # Author
 
