@@ -58,16 +58,16 @@ The Real Time Clock consists of the following modules:
 # Modules
 **module RealTimeClock(clk, reset, ...)**
 
-This is the main clock module that handles the incrementation of seconds, minutes, and hours with proper rollover conditions.
+- This is the main clock module that handles the incrementation of seconds, minutes, and hours with proper rollover conditions.
 It also integrates a seven-segment decoder to produce outputs for display.
 
 **function seven_seg_decode(input [3:0] digit)**
 
-This function converts a 4-bit binary value into its equivalent 7-segment display pattern.
+- This function converts a 4-bit binary value into its equivalent 7-segment display pattern.
 
 **module RTC_tb**
 
-This is the testbench used to verify the functionality of the RTC module. It simulates the clock signal, applies reset, and monitors outputs during simulation.
+- This is the testbench used to verify the functionality of the RTC module. It simulates the clock signal, applies reset, and monitors outputs during simulation.
 
 # Working
 
@@ -85,13 +85,20 @@ This is the testbench used to verify the functionality of the RTC module. It sim
 
 # Example Output
 
-Simulation of the clock shows the following transitions:
+**Simulation of the clock shows the following transitions**:
+
 Time=863855000 | 23:59:45
+
 Time=863875000 | 23:59:47
+
 Time=863995000 | 23:59:59
+
 Time=864005000 | 00:00:00
+
 Time=864015000 | 00:00:01
+
 Time=864025000 | 00:00:02
+
 The simulation verifies that the time resets correctly from 23:59:59 → 00:00:00 and continues normally.
 
 # Output Synthesis
