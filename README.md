@@ -17,13 +17,11 @@ The Real Time Clock consists of the following modules:
 **Seven-Segment Display Decoder**
 
 - each 4-bit binary digit (0–9) into a 7-bit segment pattern.
-
 - Outputs signals suitable for display on standard seven-segment displays.
 
 **Testbench Module**
 
 - Simulates the clock signal, reset signal, and observes time transitions.
-
 - Uses $monitor to display the time values at each simulation step.
 
 # Specifications
@@ -31,17 +29,13 @@ The Real Time Clock consists of the following modules:
 **Inputs**:
 
 - **clk**: Clock input (used for counting seconds)
-
 - **reset**: Asynchronous reset to initialize the clock to 00:00:00
 
 **Outputs**:
 
 - **hr_m, hr_l**: Hour tens and ones digits
-
 - **min_m, min_l**: Minute tens and ones digits
-
 - **sec_m, sec_l**: Second tens and ones digits
-
 - **seg_hr_m, seg_hr_l, seg_min_m, seg_min_l, seg_sec_m, seg_sec_l**: Seven-segment display encoded outputs
 
 # Significance of the Specifications
@@ -71,15 +65,10 @@ It also integrates a seven-segment decoder to produce outputs for display.
 # Working
 
 1) The clock signal (clk) provides pulses that simulate one-second intervals.
-
 2) Each positive clock edge increments the seconds counter (sec_l, sec_m).
-
 3) When seconds reach 59, the minutes counter increments by one and seconds reset to 00.
-
 4) Similarly, when minutes reach 59, the hours counter increments by one and minutes reset to 00.
-
 5) After 23:59:59, the system resets to 00:00:00, completing a 24-hour cycle.
-
 6) All outputs are simultaneously decoded into seven-segment display signals.
 
 # Example Output
@@ -124,9 +113,7 @@ The simulation verifies that the time resets correctly from 23:59:59 → 00:00:0
 # Future Enhancements
 
 1) Add alarm functionality
-
 2) Include real-time synchronization using external RTC modules (like DS3231)
-
 3) Display time on physical FPGA 7-segment displays
 
 # Author
